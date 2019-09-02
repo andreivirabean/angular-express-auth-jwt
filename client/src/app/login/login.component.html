@@ -1,0 +1,42 @@
+<div class="row pt-5">
+  <div class="col-md-6 mx-auto">
+    <div class="card rounded-0">
+      <div class="card-header">
+        <h3 class="mb-0">Login</h3>
+      </div>
+      <div class="card-body">
+        <form class="form">
+          <!-- Errors  -->
+          <div *ngIf="validationErrors.length">
+            <div *ngFor="let error of validationErrors" class="alert alert-danger alert-dismissible fade show"
+              role="alert">
+              {{ error }}
+            </div>
+          </div>
+
+          <!-- User Email -->
+          <div class="form-group">
+            <mat-form-field class="example-full-width" style="width: 100%;">
+              <input matInput [(ngModel)]="userAuthData.email" name="email" placeholder="Email" maxlength="50" required>
+            </mat-form-field>
+          </div>
+
+          <!-- User Password -->
+          <div class="form-group">
+            <mat-form-field class="example-full-width" style="width: 100%;">
+              <input matInput [(ngModel)]="userAuthData.password" maxlength="20" name="password" type="password"
+                placeholder="Password" required maxlength="50">
+            </mat-form-field>
+          </div>
+
+          <small class="float-left text-muted">Need an account?
+            <a [routerLink]="['/register']">Sign up now</a>
+          </small>
+
+          <button (click)="loginUser()" [disabled]="!userAuthData.email || !userAuthData.password"
+            class="btn btn-success float-right">Login</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

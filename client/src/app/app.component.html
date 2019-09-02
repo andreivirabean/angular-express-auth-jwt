@@ -1,0 +1,48 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <a class="navbar-brand" href="#">
+    <img src="../assets/images/logo.png" width="30" height="30" alt="">
+  </a>
+  <a class="navbar-brand" href="#">Book Sharing</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mx-auto">
+      <!-- Dashboard -->
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/dashboard" *ngIf="userLoggedIn()" routerLinkActive="active">
+          <i class="far fa-list-alt"></i> Dashboard
+        </a>
+      </li>
+
+      <!-- My Books -->
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/my-books" *ngIf="userLoggedIn()" routerLinkActive="active">
+          <i class="fas fa-book"></i> My Books
+        </a>
+      </li>
+
+      <!-- My Book Requests -->
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/my-requests" *ngIf="userLoggedIn()" routerLinkActive="active">
+          <i class="fas fa-tasks"></i> My Requests
+        </a>
+      </li>
+    </ul>
+    <ul class="navbar-nav">
+      <a class="nav-link" *ngIf="userLoggedIn()" routerLink="/profile" routerLinkActive="active">
+        <i class="fas fa-user-astronaut"></i> Profile
+      </a>
+      <a class="nav-link" *ngIf="!userLoggedIn()" routerLink="/login" routerLinkActive="active">Login</a>
+      <a class="nav-link" *ngIf="!userLoggedIn()" routerLink="/register" routerLinkActive="active">Register</a>
+      <a class="nav-link" *ngIf="userLoggedIn()" style="cursor:pointer" (click)="logout()">
+        <i class="fas fa-sign-out-alt"></i> Logout
+      </a>
+    </ul>
+  </div>
+</nav>
+<div class="top-component">
+  <router-outlet></router-outlet>
+</div>
