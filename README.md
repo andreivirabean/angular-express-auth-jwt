@@ -1,4 +1,4 @@
-# Book Sharing Application
+# Test Application - Learning Authentication with JWT (JSON Web Token)
 Stack: Angular 7, Express, NodeJs, MongoDB, Bootstrap 4, Font Awesome 5
 
 ## Authentication 
